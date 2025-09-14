@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flatacuties Application</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to Flatacuties!</h1>
+      <p>Your vote counts</p>
+    </header>
+
+    <main>
+      <section id="animalList">
+        <h2>Animal List</h2>
+        <ul id="addAnimalList"></ul>
+      </section>
+
+      <section id="animalDetails">
+        <h2>Animal Details</h2>
+        <div id="addAnimalDetails">
+          <p>Select animal to show more details</p>
+        </div>
+      </section>
+
+      <section id="animalForm">
+        <form id="addAnimalForm">
+          <label for="nameAnimal">Animal Name:</label>
+          <input type="text" id="nameAnimal" placeholder="Enter animal name" />
+
+          <label for="imageAnimal">Image URL:</label>
+          <input type="url" id="imageAnimal" placeholder="Enter image URL" />
+          <button type="submit">Add Animal</button>
+        </form>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
