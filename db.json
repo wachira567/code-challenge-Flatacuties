@@ -1,0 +1,40 @@
+{
+  "characters": [
+    {
+      "id": "1",
+      "name": "Crocodile",
+      "image": "https://www.dublinzoo.ie/wp-content/uploads/2019/08/PB_DublinZooReptiles01.jpg",
+      "votes": 0
+    },
+    {
+      "id": "2",
+      "name": "Elephant",
+      "image": "https://cdn.mos.cms.futurecdn.net/TVR7E3Kuzg2iRhKkjZPeWk.jpg",
+      "votes": 1
+    },
+    {
+      "id": "3",
+      "name": "Tiger",
+      "image": "https://bigcatsindia.com/wp-content/uploads/2018/06/Royal-Bengal-Tiger.jpg",
+      "votes": 0
+    },
+    {
+      "id": "4",
+      "name": "Lion",
+      "image": "https://cdn.britannica.com/29/150929-050-547070A1/lion-Kenya-Masai-Mara-National-Reserve.jpg",
+      "votes": 0
+    },
+    {
+      "id": "5",
+      "name": "Bear",
+      "image": "https://files.worldwildlife.org/wwfcmsprod/images/Brown_Bear_/hero_small/7h2u6tj3h3_brownbear_hero.jpg",
+      "votes": 0
+    },
+    {
+      "id": "87e3",
+      "name": "Cat",
+      "image": "https://hips.hearstapps.com/hmg-prod/images/ginger-maine-coon-kitten-running-on-lawn-in-royalty-free-image-1719608142.jpg?crop=1xw:0.84415xh;0,0.185xh",
+      "votes": 0
+    }
+  ]
+}
