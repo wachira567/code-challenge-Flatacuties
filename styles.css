@@ -142,7 +142,6 @@ section h2 {
 }
 
 #animalList li::before {
-  content: "🐾";
   margin-right: 0.8rem;
   font-size: 1.2rem;
 }
