@@ -1,53 +1,46 @@
-// Base address for the server
 const API_URL = "http://localhost:3000";
 
-// Keep track of the animal the user is currently viewing
 let selectedAnimal = null;
 
-// When the page is fully loaded, start the app
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Flatacuties app is starting...");
+  console.log("Flatacuties is up and running...");
   setupApp();
 });
 
-// Main setup function
 function setupApp() {
   const listArea = document.getElementById("addAnimalList");
   const detailsArea = document.getElementById("addAnimalDetails");
   const form = document.getElementById("addAnimalForm");
 
-  // If the HTML elements we need are not found, stop here
+  // stop here if page pieces are missing
   if (!listArea || !detailsArea || !form) {
-    console.error(
-      "Missing required parts of the page (list, details, or form)."
-    );
+    console.error("Page setup looks incomplete. Check your HTML.");
     return;
   }
 
-  // Make sure the form does not refresh the page
+  // stop form from refreshing the page
   form.addEventListener("submit", handleFormSubmit);
 
-  // Load the first set of animals
+  // load animals when app starts
   loadAnimals();
 }
 
-// Get animals from the server
 async function loadAnimals() {
   try {
     const response = await fetch(`${API_URL}/characters`);
-    if (!response.ok) throw new Error(`Server problem: ${response.status}`);
+    if (!response.ok)
+      throw new Error(`Problem with server: ${response.status}`);
 
     const animals = await response.json();
     displayAnimalList(animals);
   } catch (error) {
-    console.error("Could not load animals:", error);
+    console.error("Couldn't fetch animals:", error);
     showError(
-      "Animals could not be loaded. Please refresh or try again later."
+      "Sorry, animals couldn't be loaded. Try refreshing the page later."
     );
   }
 }
 
-// Show all animals in the list
 function displayAnimalList(animals) {
   const list = document.getElementById("addAnimalList");
   list.innerHTML = "";
@@ -57,6 +50,7 @@ function displayAnimalList(animals) {
     return;
   }
 
+  // show all animals in the left list
   animals.forEach((animal) => {
     const listItem = document.createElement("li");
     listItem.textContent = animal.name;
@@ -70,11 +64,11 @@ function displayAnimalList(animals) {
   });
 }
 
-// Show details of a single animal
 function displayAnimalDetails(animal) {
   selectedAnimal = animal;
   const details = document.getElementById("addAnimalDetails");
 
+  // main card for one animal
   details.innerHTML = `
     <div class="animal-detail-card">
       <h3>${animal.name}</h3>
@@ -90,7 +84,7 @@ function displayAnimalDetails(animal) {
     </div>
   `;
 
-  // Add button events
+  // hook up buttons
   document
     .getElementById("upvoteBtn")
     .addEventListener("click", () => changeVotes(1));
@@ -100,10 +94,9 @@ function displayAnimalDetails(animal) {
   document.getElementById("resetBtn").addEventListener("click", resetVotes);
 }
 
-// Change the vote count
 async function changeVotes(amount) {
   if (!selectedAnimal) {
-    alert("Please pick an animal first.");
+    alert("Pick an animal first before voting.");
     return;
   }
 
@@ -116,17 +109,17 @@ async function changeVotes(amount) {
       body: JSON.stringify({ votes: updatedVotes }),
     });
 
-    if (!response.ok) throw new Error("Server failed to update votes");
+    if (!response.ok) throw new Error("Couldn't update votes on the server");
 
+    // update page with new vote count
     selectedAnimal.votes = updatedVotes;
     document.getElementById("voteCount").textContent = updatedVotes;
   } catch (error) {
-    console.error("Vote update failed:", error);
-    alert("Could not update votes. Try again later.");
+    console.error("Updating votes didn't work:", error);
+    alert("Couldn't save your vote. Please try again in a bit.");
   }
 }
 
-// Reset votes back to zero
 async function resetVotes() {
   if (!selectedAnimal) return;
 
@@ -137,30 +130,30 @@ async function resetVotes() {
       body: JSON.stringify({ votes: 0 }),
     });
 
-    if (!response.ok) throw new Error("Server failed to reset votes");
+    if (!response.ok) throw new Error("Couldn't reset votes on the server");
 
+    // reset count back to zero
     selectedAnimal.votes = 0;
     document.getElementById("voteCount").textContent = 0;
   } catch (error) {
-    console.error("Reset failed:", error);
-    alert("Could not reset votes. Try again later.");
+    console.error("Reset didn't work:", error);
+    alert("Couldn't reset the votes right now. Try again later.");
   }
 }
 
-// Add a new animal
 async function handleFormSubmit(event) {
-  event.preventDefault(); // stop form from refreshing the page
+  event.preventDefault();
 
   const name = document.getElementById("nameAnimal").value.trim();
   const image = document.getElementById("imageAnimal").value.trim();
 
   if (!name) {
-    alert("Please enter a name for the animal.");
+    alert("Please give your animal a name.");
     return;
   }
 
   if (!image) {
-    alert("Please enter a picture URL.");
+    alert("Please provide a picture URL.");
     return;
   }
 
@@ -171,18 +164,17 @@ async function handleFormSubmit(event) {
       body: JSON.stringify({ name, image, votes: 0 }),
     });
 
-    if (!response.ok) throw new Error("Server failed to add animal");
+    if (!response.ok) throw new Error("Couldn't add the animal on the server");
 
-    event.target.reset(); // clear the form
-    loadAnimals(); // reload the list
-    alert(`${name} was added successfully!`);
+    event.target.reset();
+    loadAnimals();
+    alert(`${name} has been added successfully.`);
   } catch (error) {
-    console.error("Adding animal failed:", error);
-    alert("Could not add the animal. Please try again later.");
+    console.error("Adding a new animal didn't work:", error);
+    alert("Couldn't add the animal. Please try again later.");
   }
 }
 
-// Show error messages on the page
 function showError(message) {
   const details = document.getElementById("addAnimalDetails");
   details.innerHTML = `

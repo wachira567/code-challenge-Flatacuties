@@ -10,7 +10,7 @@
       "id": "2",
       "name": "Elephant",
       "image": "https://cdn.mos.cms.futurecdn.net/TVR7E3Kuzg2iRhKkjZPeWk.jpg",
-      "votes": 0
+      "votes": 1
     },
     {
       "id": "3",
@@ -34,13 +34,13 @@
       "id": "87e3",
       "name": "Cat",
       "image": "https://hips.hearstapps.com/hmg-prod/images/ginger-maine-coon-kitten-running-on-lawn-in-royalty-free-image-1719608142.jpg?crop=1xw:0.84415xh;0,0.185xh",
-      "votes": 3
+      "votes": 2
     },
     {
       "id": "9de3",
       "name": "Cat",
       "image": "https://hips.hearstapps.com/hmg-prod/images/ginger-maine-coon-kitten-running-on-lawn-in-royalty-free-image-1719608142.jpg?crop=1xw:0.84415xh;0,0.185xh",
-      "votes": 0
+      "votes": 1
     }
   ]
 }

@@ -1,59 +1,57 @@
-# 🐾 Flatacuties - Animal Voting App
+Flatacuties - Animal Voting App
 
-A fun and interactive web application that lets you view, add, and vote for your favorite animals.
+Flatacuties is a simple web app where you can view animals, vote for your favorites, and even add new ones.
 
-## ✨ Features
+Features
 
-- **Browse Animals** - View a colorful catalog of animals with detailed information
-- **Vote for Favorites** - Support animals with upvotes or express dissent with downvotes
-- **Add New Animals** - Contribute to our growing collection
-- **Responsive Design** - Enjoy a seamless experience on desktop, tablet, or mobile
-- **Beautiful Interface** - Experience a visually appealing and intuitive design
+Browse a list of animals with images and details
 
-## 🚀 Quick Start
+Vote animals up or down to change their score
 
-### Prerequisites
+Reset votes at any time
 
-- Node.js and npm installed on your system
-- A modern web browser (Chrome, Firefox, Safari, or Edge)
+Add your own animals through a quick form
 
-### Installation & Setup
+Works smoothly on desktop and mobile
 
-1. **Install the JSON Server**
+Getting Started
+Requirements
 
-   ```bash
-   npm install -g json-server
-   ```
+Node.js and npm installed
 
-2. **Launch the Backend Server**
+A modern web browser
 
-   ```bash
-   json-server --watch db.json --port 3000
-   ```
+Setup
 
-3. **Open the Application**
-   - Simply open the main HTML file in your web browser
+Install JSON Server:
 
-## 🎮 How to Use
+npm install -g json-server
 
-1. **Explore Animals** - Click on any animal in the list to view its details
-2. **Cast Your Vote** -- buttons to influence scores
-3. **Reset Scores** - Click "Reset Votes" to clear voting history for any animal
-4. **Contribute** - Use the submission form to add new animals to our collection
+Start the server:
 
-## 🛠️ Customization
+json-server --watch db.json --port 3000
 
-You can easily customize the animal database by modifying the JSON structure:
+Open the main HTML file in your browser to run the app.
 
-```json
+Usage
+
+Select an animal from the list to see details.
+
+Use the buttons to upvote, downvote, or reset votes.
+
+Add new animals using the form at the bottom of the page.
+
+Customization
+
+You can edit the data by changing the db.json file. Example:
+
 {
-  "characters": [
-    {
-      "id": 1,
-      "name": "Animal Name",
-      "image": "image-url.jpg",
-      "votes": 0
-    }
-  ]
+"characters": [
+{
+"id": 1,
+"name": "Animal Name",
+"image": "image-url.jpg",
+"votes": 0
 }
-```
+]
+}
