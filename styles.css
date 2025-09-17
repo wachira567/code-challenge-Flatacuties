@@ -1,18 +1,3 @@
-:root {
-  --primary: #4e54c8;
-  --secondary: #8f94fb;
-  --accent: #ff6b6b;
-  --success: #38b2ac;
-  --dark: #2d3748;
-  --light: #f8f9fa;
-  --card-bg: #ffffff;
-  --text-dark: #2d3748;
-  --text-light: #f8f9fa;
-  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --gradient: linear-gradient(to right, #4e54c8, #8f94fb);
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -20,135 +5,62 @@
 }
 
 body {
-  font-family: "Nunito", sans-serif;
-  background: linear-gradient(to bottom right, #f0f4ff, #e6e9ff);
-  color: var(--text-dark);
-  min-height: 100vh;
-  line-height: 1.6;
+  font-family: sans-serif;
+  background: white;
+  color: black;
+  line-height: 1.5;
 }
 
 header {
-  background: var(--gradient);
+  background: blue;
   color: white;
   text-align: center;
-  padding: 2rem 1rem;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  box-shadow: var(--shadow);
-  position: relative;
-  overflow: hidden;
-}
-
-header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-  background-size: cover;
-  background-position: center;
+  padding: 1.5rem;
 }
 
 header h1 {
-  font-size: 2.8rem;
+  font-size: 2rem;
   margin-bottom: 0.5rem;
-  font-weight: 800;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-  max-width: 600px;
-  margin: 0 auto;
+  font-size: 1rem;
 }
 
 main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 1.5rem;
 }
 
-@media (min-width: 768px) {
-  main {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  #animalForm {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (min-width: 1024px) {
-  main {
-    grid-template-columns: 1fr 2fr;
-  }
-
-  #animalForm {
-    grid-column: 1 / -1;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-}
-
-/* Section Styles */
 section {
-  background: var(--card-bg);
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease;
-}
-
-section:hover {
-  transform: translateY(-5px);
+  background: white;
+  border: 1px solid lightgray;
+  padding: 1rem;
+  border-radius: 6px;
 }
 
 section h2 {
-  color: var(--primary);
-  margin-bottom: 1.2rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--secondary);
-  font-weight: 700;
+  color: blue;
+  margin-bottom: 1rem;
 }
 
-/* Animal List Styles */
 #animalList ul {
   list-style: none;
-  display: grid;
-  gap: 0.8rem;
 }
 
 #animalList li {
-  padding: 1rem;
-  background: #f8f9ff;
-  border-radius: 12px;
+  padding: 0.5rem;
+  border: 1px solid lightgray;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border-left: 4px solid var(--primary);
-  display: flex;
-  align-items: center;
 }
 
 #animalList li:hover {
-  background: var(--primary);
-  color: white;
-  transform: translateX(5px);
-}
-
-#animalList li::before {
-  margin-right: 0.8rem;
-  font-size: 1.2rem;
-}
-
-/* Animal Details Styles */
-#animalDetails {
-  position: relative;
+  background: lightgray;
 }
 
 .animal-detail-card {
@@ -156,252 +68,73 @@ section h2 {
 }
 
 .animal-detail-card h3 {
-  font-size: 1.8rem;
-  color: var(--primary);
+  color: blue;
   margin-bottom: 1rem;
 }
 
 .animal-image {
   width: 100%;
-  max-width: 300px;
-  height: auto;
-  border-radius: 16px;
-  margin: 0 auto 1.5rem;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  border: 4px solid white;
+  max-width: 250px;
+  border-radius: 6px;
+  margin-bottom: 1rem;
 }
 
 .vote-section {
-  background: #f8f9ff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-top: 1.5rem;
-}
-
-.vote-count {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 1.2rem;
-  color: var(--dark);
-}
-
-.vote-count span {
-  color: var(--primary);
-  font-size: 1.8rem;
+  margin-top: 1rem;
 }
 
 .vote-controls {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: 0.5rem;
   justify-content: center;
 }
 
-.vote-btn {
-  padding: 0.8rem 1.5rem;
+.vote-controls button {
+  background: blue;
+  color: white;
   border: none;
-  border-radius: 50px;
-  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: inherit;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.vote-btn.upvote {
-  background: var(--success);
-  color: white;
-}
-
-.vote-btn.upvote:hover {
-  background: #2c9c96;
-  transform: scale(1.05);
-}
-
-.vote-btn.downvote {
-  background: var(--accent);
-  color: white;
-}
-
-.vote-btn.downvote:hover {
-  background: #ff5252;
-  transform: scale(1.05);
-}
-
-.vote-btn.reset {
-  background: #e2e8f0;
-  color: var(--dark);
-}
-
-.vote-btn.reset:hover {
-  background: #cbd5e0;
-  transform: scale(1.05);
 }
 
 #animalForm {
-  background: var(--card-bg);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: var(--shadow);
+  background: white;
+  border: 1px solid lightgray;
+  padding: 1rem;
+  border-radius: 6px;
 }
 
 .formGroup {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .formGroup label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: var(--primary);
+  color: blue;
 }
 
 .formGroup input {
   width: 100%;
-  padding: 1rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
-  font-family: inherit;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.formGroup input:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(78, 84, 200, 0.2);
-}
-
-#animalForm button {
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: inherit;
-  font-size: 1rem;
-  display: block;
-  margin-left: auto;
-  box-shadow: 0 4px 6px rgba(78, 84, 200, 0.3);
-}
-
-#animalForm button:hover {
-  background: #4348b0;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(78, 84, 200, 0.4);
-}
-
-.error-message {
-  background: #fed7d7;
-  color: #c53030;
-  padding: 1rem;
-  border-radius: 8px;
-  margin: 1rem 0;
-  border-left: 4px solid #f56565;
-}
-
-#addAnimalList:empty::after {
-  content: "No animals found. Add some using the form below!";
-  display: block;
-  padding: 1.5rem;
-  text-align: center;
-  color: #a0aec0;
-  font-style: italic;
-  background: #f8f9ff;
-  border-radius: 12px;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animal-item {
-  animation: fadeIn 0.5s ease forwards;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.vote-updated {
-  animation: pulse 0.5s ease;
-}
-
-@media (max-width: 767px) {
-  header h1 {
-    font-size: 2.2rem;
-  }
-
-  .vote-controls {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .vote-btn {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-.animal-decoration {
-  position: absolute;
-  font-size: 3rem;
-  opacity: 0.1;
-  z-index: -1;
-}
-
-.deco-1 {
-  top: 20px;
-  right: 20px;
-  transform: rotate(15deg);
-}
-
-.deco-2 {
-  bottom: 20px;
-  left: 20px;
-  transform: rotate(-15deg);
-}
-
-button:focus,
-input:focus {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--primary);
+  padding: 0.5rem;
+  border: 1px solid lightgray;
   border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #4348b0;
+#animalForm button {
+  background: blue;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error-message {
+  background: lightpink;
+  color: darkred;
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin-top: 1rem;
 }
