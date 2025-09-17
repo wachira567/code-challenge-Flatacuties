@@ -12,32 +12,22 @@ function setupApp() {
   const detailsArea = document.getElementById("addAnimalDetails");
   const form = document.getElementById("addAnimalForm");
 
-  // stop here if page pieces are missing
-  if (!listArea || !detailsArea || !form) {
-    console.error("Page setup looks incomplete. Check your HTML.");
-    return;
+  // make sure all three elements exist first
+  if (listArea && detailsArea && form) {
+    form.addEventListener("submit", handleFormSubmit);
+    loadAnimals();
+  } else {
+    console.error("Missing required parts of the page. Check your HTML.");
   }
-
-  // stop form from refreshing the page
-  form.addEventListener("submit", handleFormSubmit);
-
-  // load animals when app starts
-  loadAnimals();
 }
 
 async function loadAnimals() {
   try {
-    const response = await fetch(`${API_URL}/characters`);
-    if (!response.ok)
-      throw new Error(`Problem with server: ${response.status}`);
-
-    const animals = await response.json();
-    displayAnimalList(animals);
-  } catch (error) {
-    console.error("Couldn't fetch animals:", error);
-    showError(
-      "Sorry, animals couldn't be loaded. Try refreshing the page later."
-    );
+    const res = await fetch(`${API_URL}/characters`);
+    if (!res.ok) throw new Error(res.status);
+    displayAnimalList(await res.json());
+  } catch {
+    showError("Could not load animals. Please try again later.");
   }
 }
 
@@ -142,36 +132,31 @@ async function resetVotes() {
 }
 
 async function handleFormSubmit(event) {
-  event.preventDefault();
+  event.preventDefault(); // stop the page from refreshing
 
   const name = document.getElementById("nameAnimal").value.trim();
   const image = document.getElementById("imageAnimal").value.trim();
 
-  if (!name) {
-    alert("Please give your animal a name.");
-    return;
-  }
-
-  if (!image) {
-    alert("Please provide a picture URL.");
+  if (!name || !image) {
+    alert("Both name and picture are required.");
     return;
   }
 
   try {
-    const response = await fetch(`${API_URL}/characters`, {
+    const res = await fetch(`${API_URL}/characters`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, image, votes: 0 }),
     });
 
-    if (!response.ok) throw new Error("Couldn't add the animal on the server");
+    if (!res.ok) throw new Error("Server refused the request");
 
-    event.target.reset();
-    loadAnimals();
-    alert(`${name} has been added successfully.`);
-  } catch (error) {
-    console.error("Adding a new animal didn't work:", error);
-    alert("Couldn't add the animal. Please try again later.");
+    event.target.reset(); // clear the form
+    loadAnimals(); // reload the list
+    alert(`${name} was added!`);
+  } catch (err) {
+    console.error("Problem adding animal:", err);
+    alert("Could not add animal right now. Try again later.");
   }
 }
 
